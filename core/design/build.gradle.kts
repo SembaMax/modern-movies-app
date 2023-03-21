@@ -14,7 +14,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":data:model"))
+    implementation(project(":core:common"))
     implementation(libs.androidx.core.ktx)
     api(libs.androidx.compose.ui)
     api(libs.androidx.compose.material3)
