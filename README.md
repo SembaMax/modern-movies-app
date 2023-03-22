@@ -83,3 +83,6 @@ The app is designed with multi layer MVVM architecture for better control over i
 - Coil
 - Gradle kts
 - Modularization
+- JUnit4
+- Mockk
+- MockWebServer
