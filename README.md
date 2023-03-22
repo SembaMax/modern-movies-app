@@ -17,6 +17,10 @@ A simple movies app that fetches movies data using [TheMovieDB API](https://deve
 * Modular MVVM architecture
 
 
+## Features to improve/add
+- [X] Search Movies
+
+
 ## Screenshots
 
 <p align="center">
