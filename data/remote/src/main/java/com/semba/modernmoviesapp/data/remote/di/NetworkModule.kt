@@ -37,7 +37,10 @@ object NetworkModule {
             .newBuilder()
             .addQueryParameter("key", BuildConfig.API_KEY)
             .build()
-        val request: Request = it.request().newBuilder().url(url).build()
+        val request: Request = it.request().newBuilder().addHeader(
+            MoviesApiService.AUTHORIZATION_HEADER_KEY,
+            "Bearer ${BuildConfig.API_ACCESS_TOKEN}"
+        ).url(url).build()
         it.proceed(request)
     }
 

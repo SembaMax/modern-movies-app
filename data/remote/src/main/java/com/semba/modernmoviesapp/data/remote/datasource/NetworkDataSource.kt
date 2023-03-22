@@ -19,6 +19,9 @@ class NetworkDataSource @Inject constructor(private val service: MoviesApiServic
             if (result.isSuccessful) {
                 Timber.d("Http request is successful. Latest movies with size = ${result.body()?.results?.size}")
                 val items = result.body()?.results ?: emptyList()
+                items.forEach {
+                    it.appendImageUrl()
+                }
                 DataResponse.Success(items)
             } else {
                 val errorCode = result.code()
@@ -42,6 +45,9 @@ class NetworkDataSource @Inject constructor(private val service: MoviesApiServic
             if (result.isSuccessful) {
                 Timber.d("Http request is successful. Search movies with size = ${result.body()?.results?.size}")
                 val items = result.body()?.results ?: emptyList()
+                items.forEach {
+                    it.appendImageUrl()
+                }
                 DataResponse.Success(items)
             } else {
                 val errorCode = result.code()
@@ -63,6 +69,7 @@ class NetworkDataSource @Inject constructor(private val service: MoviesApiServic
             if (result.isSuccessful && result.body() != null) {
                 Timber.d("Http request is successful. Movie fetched with id ${movieId}}")
                 val item = result.body() ?: MovieItem.empty()
+                item.appendImageUrl()
                 DataResponse.Success(item)
             } else {
                 val errorCode = result.code()
@@ -75,5 +82,8 @@ class NetworkDataSource @Inject constructor(private val service: MoviesApiServic
         }
     }
 
+    fun MovieItem.appendImageUrl() {
+        this.posterPath = "${MoviesApiService.IMAGE_BASE_URL}${this.posterPath}"
+    }
 
 }

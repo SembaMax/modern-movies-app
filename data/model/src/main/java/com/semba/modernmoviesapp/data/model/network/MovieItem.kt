@@ -13,7 +13,7 @@ data class MovieItem (
         @SerialName("original_title") val originalTitle: String? = null,
         val overview: String? = null,
         val popularity: Float? = null,
-        @SerialName("poster_path") val posterPath: String? = null,
+        @SerialName("poster_path") var posterPath: String? = null,
         @SerialName("production_companies") val productionCompanies: List<ProductionCompany>? = null,
         @SerialName("production_countries") val productionCountries: List<ProductionCountry>? = null,
         @SerialName("release_date") val releaseDate: String? = null,

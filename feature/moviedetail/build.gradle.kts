@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.semba.modernmoviesapp.feature.searchscreen"
+    namespace = "com.semba.modernmoviesapp.feature.moviedetail"
 }
 
 dependencies {
