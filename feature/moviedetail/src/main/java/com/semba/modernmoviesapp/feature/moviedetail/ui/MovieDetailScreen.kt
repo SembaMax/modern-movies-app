@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -56,6 +57,8 @@ fun MovieDetailScreen(modifier: Modifier = Modifier, uiState: DetailUiState) {
                 DetailContent(movieItem = uiState.movieItem)
             }
         }
+
+        DetailTopBar()
     }
 }
 
@@ -76,7 +79,6 @@ fun DetailContent(movieItem: MovieItem = MovieItem.empty()) {
                 .height(500.dp), poster = movieItem.posterPath, title = movieItem.title)
             BottomDetailsSection(modifier = Modifier, movieItem.releaseDate, movieItem.voteAverage, movieItem.runtime, movieItem.overview, movieItem.genres)
         }
-        DetailTopBar()
     }
 }
 
@@ -86,9 +88,10 @@ fun DetailTopBar() {
         val dispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
 
         IconButton(onClick = { dispatcher?.onBackPressed() }, modifier = Modifier
+            .testTag(TestTags.DETAIL_BACK_TEST_TAG)
             .size(35.dp)
             .align(Alignment.CenterStart)) {
-            Icon(modifier = Modifier.size(40.dp), painter = painterResource(id = DesignR.drawable.ic_back), contentDescription = TestTags.DETAIL_BACK_TEST_TAG, tint = MaterialTheme.colorScheme.onSecondary)
+            Icon(modifier = Modifier.size(40.dp), painter = painterResource(id = DesignR.drawable.ic_back), contentDescription = "", tint = MaterialTheme.colorScheme.onSecondary)
         }
     }
 }

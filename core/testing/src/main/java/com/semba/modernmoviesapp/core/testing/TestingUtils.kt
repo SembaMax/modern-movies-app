@@ -12,7 +12,7 @@ object TestingUtils {
         return reader.use { it.readText() }
     }
 
-    fun imagesJsonAsItems(): List<MovieItem> {
+    fun moviesJsonAsItems(): List<MovieItem> {
         val jsonString = moviesJsonAsString()
         return Json {
             ignoreUnknownKeys = true
