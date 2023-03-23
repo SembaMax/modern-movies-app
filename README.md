@@ -84,5 +84,6 @@ The app is designed with multi layer MVVM architecture for better control over i
 - Gradle kts
 - Modularization
 - JUnit4
+- Compose UI Test
 - Mockk
 - MockWebServer
